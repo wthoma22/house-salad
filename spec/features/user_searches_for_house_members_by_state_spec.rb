@@ -8,9 +8,9 @@ feature "User can view house members by state" do
     # And I select "Colorado" from the dropdown
     select("Colorado", :from => "state").select_option
     # And I click on "Locate Members from the House"
-    click_on "Locate Members from the House"
+    click_on "Locate Members of the House"
     # Then my path should be "/search" with "state=CO" in the parameters
-    expect(current_path).to eq("/search?state=CO")
+    expect(current_path).to eq("/search")
     # And I should see a message "7 Results"
     expect(page).to have_selector(".members", count: 7)
     # And I should see a list of 7 the members of the house for Colorado
