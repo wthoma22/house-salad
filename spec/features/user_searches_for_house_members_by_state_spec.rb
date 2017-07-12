@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature "User can view house members by state" do
   scenario "it is a valid search" do
@@ -6,7 +6,7 @@ feature "User can view house members by state" do
     # When I visit "/"
     visit "/"
     # And I select "Colorado" from the dropdown
-    select("Colorado", :from => "us_states").select_option
+    select("Colorado", :from => "state").select_option
     # And I click on "Locate Members from the House"
     click_on "Locate Members from the House"
     # Then my path should be "/search" with "state=CO" in the parameters
