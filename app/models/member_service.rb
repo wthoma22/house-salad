@@ -2,14 +2,13 @@ class MemberService < ApplicationController
 
   def initialize(filter = {})
     @filter = filter
-    @conn = Faraday.new(url: "https://api.propublica.org/congress/v1/members") do |faraday|
-      faraday.headers["X-API-KEY: #{ENV['x-api-key']}"]
-    @state = state
+    @conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
+      faraday.headers = {"X-API-Key" => "#{ENV['x-api-key']}"}
     end
   end
 
-  def self.find_by_state
-    response = @conn.get "/house/CO/current.json"
+  def find_by_state
+    response = conn.get "/congress/v1/members/house/CO/current.json"
     binding.pry
     JSON.parse(response.body, symbolize_names: true)
   end

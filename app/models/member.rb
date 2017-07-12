@@ -9,7 +9,7 @@ class Member
   end
 
   def self.find_by_state
-    MemberService.find_by_state.map do |raw_member|
+    MemberService.new.find_by_state.map do |raw_member|
       new(raw_member)
     end
   end
