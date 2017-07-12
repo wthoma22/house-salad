@@ -8,8 +8,8 @@ class Member
     @district = attrs[:district]
   end
 
-  def self.find_by_house
-    MemberService.find_by_house.map do |raw_member|
+  def self.find_by_state
+    MemberService.find_by_state.map do |raw_member|
       new(raw_member)
     end
   end

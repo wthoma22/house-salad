@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
 
   def index
-    @members = Member.find_by_house
+    @members = Member.find_by_state
   end
 end
